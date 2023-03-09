@@ -3,9 +3,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio station = new Radio();
+    Radio volume = new Radio();
     @Test
     public void shouldSetFirstStation() {
-        Radio station = new Radio();
 
         int expected = 0;
         int actual = station.getCurrentStation();
@@ -17,7 +18,6 @@ public class RadioTest {
 
     @Test
     public void shouldLastStation() {
-        Radio station = new Radio();
 
         station.setCurrentStation(9);
 
@@ -29,7 +29,6 @@ public class RadioTest {
 
     @Test
     public void shouldMoreMax() {
-        Radio station = new Radio();
 
         station.setCurrentStation(11);
 
@@ -41,7 +40,6 @@ public class RadioTest {
 
     @Test
     public void shouldLessMin() {
-        Radio station = new Radio();
 
         station.setCurrentStation(-1);
 
@@ -53,7 +51,6 @@ public class RadioTest {
 
     @Test
     public void shouldValidStations() {
-        Radio station = new Radio();
 
         station.setCurrentStation(3);
 
@@ -66,7 +63,6 @@ public class RadioTest {
 
     @Test
     public void shouldAfterLastStation() {
-        Radio station = new Radio();
 
         station.setCurrentStation(9);
         station.next();
@@ -79,7 +75,6 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationPlus() {
-        Radio station = new Radio();
 
         station.setCurrentStation(8);
         station.next();
@@ -92,7 +87,6 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationMinus() {
-        Radio station = new Radio();
 
         station.setCurrentStation(7);
         station.prev();
@@ -106,7 +100,6 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchStation() {
-        Radio station = new Radio();
         for (int i = 0; i < 5; i++) {
             station.next();
         }
@@ -119,7 +112,6 @@ public class RadioTest {
 
     @Test
     public void shouldChangeNextStation() {
-        Radio station = new Radio();
 
         station.next();
 
@@ -131,7 +123,6 @@ public class RadioTest {
 
     @Test
     public void shouldBeforeFirstStation() {
-        Radio station = new Radio();
 
         station.prev();
 
@@ -144,7 +135,6 @@ public class RadioTest {
 
     @Test
     public void shouldMinVolume() {
-        Radio volume = new Radio();
 
         int expected = 0;
         int actual = volume.getSoundVolume();
@@ -155,7 +145,6 @@ public class RadioTest {
 
     @Test
     public void shouldPlusVolume() {
-        Radio volume = new Radio();
 
         volume.volumePlus();
 
@@ -167,7 +156,6 @@ public class RadioTest {
 
     @Test
     public void shouldPlusVolumeValid() {
-        Radio volume = new Radio();
 
         for (int i = 0; i < 5; i++) {
             volume.volumePlus();
@@ -181,13 +169,12 @@ public class RadioTest {
 
     @Test
     public void shouldPlusVolumeMaxLimit() {
-        Radio volume = new Radio();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             volume.volumePlus();
         }
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -195,7 +182,6 @@ public class RadioTest {
 
     @Test
     public void shouldNotPlusVolumeOverLimit() {
-        Radio volume = new Radio();
 
         for (int i = 0; i < 101; i++) {
             volume.volumePlus();
@@ -209,7 +195,6 @@ public class RadioTest {
 
     @Test
     public void shouldMinusSoundVolume() {
-        Radio volume = new Radio();
 
         volume.volumeMinus();
 
@@ -221,7 +206,6 @@ public class RadioTest {
 
     @Test
     public void shouldMinusVolumeValid() {
-        Radio volume = new Radio();
 
         for (int i = 0; i < 3; i++) {
             volume.volumePlus();
