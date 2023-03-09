@@ -220,4 +220,15 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldStationCount() {
+        Radio station = new Radio(20);
+        station.setCurrentStation(20);
+
+        int expected = 0;
+        int actual = station.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+
+    }
+
 }
