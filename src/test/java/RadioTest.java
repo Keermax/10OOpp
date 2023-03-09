@@ -197,11 +197,11 @@ public class RadioTest {
     public void shouldNotPlusVolumeOverLimit() {
         Radio volume = new Radio();
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 101; i++) {
             volume.volumePlus();
         }
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -235,4 +235,5 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
 }

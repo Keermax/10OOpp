@@ -1,9 +1,21 @@
 package org.example;
 
 public class Radio {
+    private int minChannelNumber;
+    private int maxChannelNumber;
+    private int CurrentStation;
+    private int minVolume;
+    private int maxVolume;
 
-    public int CurrentStation;
-    public int soundVolume;
+    private int soundVolume;
+
+    public Radio() {
+        maxChannelNumber = 9;
+        minChannelNumber = 0;
+        maxVolume = 100;
+        minVolume = 0;
+    }
+
 
 
 
@@ -13,10 +25,10 @@ public class Radio {
 
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
+        if (newCurrentStation < minChannelNumber) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxChannelNumber) {
             return;
         }
         CurrentStation = newCurrentStation;
@@ -25,8 +37,8 @@ public class Radio {
 
 
     public void next() {
-        if (CurrentStation == 9) {
-            CurrentStation = 0;
+        if (CurrentStation == maxChannelNumber) {
+            CurrentStation = minChannelNumber;
             return;
         }
         CurrentStation++;
@@ -34,8 +46,8 @@ public class Radio {
     }
 
     public void prev() {
-        if (CurrentStation == 0) {
-            CurrentStation = 9;
+        if (CurrentStation == minChannelNumber) {
+            CurrentStation = maxChannelNumber;
             return;
         }
         CurrentStation--;
@@ -46,15 +58,15 @@ public class Radio {
     }
 
     public void volumePlus() {
-        if (soundVolume == 10) {
-            soundVolume = 10;
+        if (soundVolume == maxVolume) {
+            soundVolume = maxVolume;
             return;
         }
         soundVolume++;
     }
     public void volumeMinus() {
-        if (soundVolume == 0) {
-            soundVolume = 0;
+        if (soundVolume == minVolume) {
+            soundVolume = minVolume;
             return;
         }
         soundVolume--;
